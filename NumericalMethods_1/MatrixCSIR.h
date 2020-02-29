@@ -1,4 +1,7 @@
 #pragma once
+#include <vector> 
+
+using namespace std;
 
 class MatrixCSIR
 {
@@ -8,11 +11,11 @@ public:
 	double GetElement(int row, int column);
 	void TransposeFullMatrix();
 	void MultiplyFullMatrix();
-	void MultiplyRazrMatrix();
+	vector<double> MultiplySparseMatrixByVector(vector<double> multipliedVector);
 	void FiftenExs();
 
 private:
-	int sizeMatrix = 0;
+	int size = 0;
 
 	double* di;
 	double* autr;

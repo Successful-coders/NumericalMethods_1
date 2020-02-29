@@ -49,9 +49,30 @@ void MatrixCSIR::MultiplyFullMatrix()
 	// умножение плотной матрицы на произвольный вектор
 }
 
-void MatrixCSIR::MultiplyRazrMatrix()
+vector<double> MatrixCSIR::MultiplySparseMatrixByVector(vector<double> multipliedVector)
 {
-	//умножение разреженой матрицы на вектор
+	if (multipliedVector.size() != size)
+	{
+		throw 0;
+	}
+
+	vector<double> resultVector;
+	
+	for (int i = 0; i < size; i++)
+	{
+		resultVector.push_back(di[i] * multipliedVector[i]);
+	}
+	
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = iptr[i]; j < iptr[i + 1]; j++)
+		{
+			resultVector[i] += altr[j] * multipliedVector[j - 1];
+			resultVector[jptr[j] - 1] += autr[j] * multipliedVector[i];
+		}
+	}
+
+	return resultVector;
 }
 
 void MatrixCSIR::FiftenExs()
