@@ -1,10 +1,10 @@
 #pragma once
+#include <vector>
 
 class MatrixCSIR
 {
 public:
-	MatrixCSIR(int sizeMatrix, double* di, double* autr, double* altr, int* jptr, int* iptr);
-
+	//MatrixCSIR(int sizeMatrix, std::vector <double> di, std::vector <double> autr, std::vector <double> altr, std::vector <int> jptr, std::vector <int> iptr); рср ньхайю
 	double GetElement(int row, int column);
 	void TransposeFullMatrix();
 	void MultiplyFullMatrix();
@@ -13,10 +13,10 @@ public:
 
 private:
 	int sizeMatrix = 0;
-
-	double* di;
-	double* autr;
-	double* altr;
-	int* jptr;
-	int* iptr;
+	std::vector <double> di;
+	std::vector <double> autr;
+	std::vector <double> altr;
+	std::vector <int> jptr;
+	std::vector <int> iptr;
 };
+
