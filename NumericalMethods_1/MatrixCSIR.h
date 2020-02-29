@@ -8,10 +8,10 @@ class MatrixCSIR
 public:
 	MatrixCSIR(int sizeMatrix, vector <double> di, vector <double> autr, vector <double> altr, vector <int> jptr, vector <int> iptr);
 	double GetElement(int row, int column);
-	void TransposeFullMatrix();
-	void MultiplyFullMatrix();
-	vector<double> MultiplySparseMatrixByVector(vector<double> multipliedVector);
-	void FiftenExs();
+	void Transpose();
+	vector<double> MultiplyByVector(vector<double> multipliedVector);
+	void Print();
+	int Size();
 
 private:
 	int size = 0;

@@ -9,6 +9,10 @@ Matrix::Matrix(vector<vector<double>> elements)
 
 Matrix::Matrix(MatrixCSIR matrixCSIR)
 {
+	size = matrixCSIR.Size();
+
+	vector<vector<double>> elements(size, std::vector<double>(size, 0));
+
 	for (int i = 0; i < size; i++)
 	{
 		for (int j = 0; j < size; j++)
@@ -16,6 +20,8 @@ Matrix::Matrix(MatrixCSIR matrixCSIR)
 			elements[i][j] = matrixCSIR.GetElement(i, j);
 		}
 	}
+
+	Matrix::elements = elements;
 }
 
 double Matrix::GetElement(int line, int column)

@@ -5,7 +5,8 @@
 #include "MatrixCSIR.h"
 #include "Matrix.h"
 
-//using namespace std;//лучше потом не использоать
+//using namespace std;
+
 std::vector <double> di;
 std::vector <double> autr;
 std::vector <double> altr;
@@ -70,14 +71,124 @@ void ReadBin(const std::string& PATH)
 	for (int i = 0; i < JPTR_SIZE; i++)
 		Reader.read((char*)&altr[i], sizeof(double));
 	Reader.close();
-	
-
 }
 
 int main()
 {
 	char* fileName;
+
 	ReadBin("");
+}
+
+void TestAllMulitplications()
+{
+	sizeMatrix = 7;
+
+	di.clear();
+	di.push_back(9);
+	di.push_back(11);
+	di.push_back(10);
+	di.push_back(9);
+	di.push_back(12);
+	di.push_back(8);
+	di.push_back(8);
+
+	autr.clear();
+	autr.push_back(2);
+	autr.push_back(3);
+	autr.push_back(1);
+	autr.push_back(2);
+	autr.push_back(1);
+	autr.push_back(1);
+	autr.push_back(1);
+	autr.push_back(2);
+	autr.push_back(1);
+
+	altr.clear();
+	altr.push_back(1);
+	altr.push_back(2);
+	altr.push_back(1);
+	altr.push_back(2);
+	altr.push_back(1);
+	altr.push_back(1);
+	altr.push_back(2);
+	altr.push_back(2);
+	altr.push_back(3);
+
+	jptr.clear();
+	jptr.push_back(2);
+	jptr.push_back(1);
+	jptr.push_back(2);
+	jptr.push_back(3);
+	jptr.push_back(1);
+	jptr.push_back(4);
+	jptr.push_back(1);
+	jptr.push_back(2);
+	jptr.push_back(5);
+
+	iptr.clear();
+	iptr.push_back(1);
+	iptr.push_back(1);
+	iptr.push_back(1);
+	iptr.push_back(2);
+	iptr.push_back(5);
+	iptr.push_back(7);
+	iptr.push_back(7);
+	iptr.push_back(10);
+
+	MatrixCSIR matrixCSIR(sizeMatrix, di, autr, altr, jptr, iptr);
+
+	matrixCSIR.Print();
+
+	cout << "******" << endl;
+
+	vector<double> multipliedVector;
+	multipliedVector.push_back(3);
+	multipliedVector.push_back(0);
+	multipliedVector.push_back(1);
+	multipliedVector.push_back(1);
+	multipliedVector.push_back(1);
+	multipliedVector.push_back(1);
+	multipliedVector.push_back(1);
+
+	for (int i = 0; i < multipliedVector.size(); i++)
+	{
+		cout << multipliedVector[i] << endl;
+	}
+
+	cout << "======" << endl;
+
+	vector<double> resultVector = matrixCSIR.MultiplyByVector(multipliedVector);
+
+	for (int i = 0; i < resultVector.size(); i++)
+	{
+		cout << resultVector[i] << endl;
+	}
+
+	cout << endl;
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	Matrix matrix(matrixCSIR);
+
+	cout << endl;
+	matrix.Print();
+
+	cout << "******" << endl;
+
+	for (int i = 0; i < multipliedVector.size(); i++)
+	{
+		cout << multipliedVector[i] << endl;
+	}
+
+	cout << "======" << endl;
+
+	resultVector = matrix.MultiplyByVector(multipliedVector);
+
+	for (int i = 0; i < resultVector.size(); i++)
+	{
+		cout << resultVector[i] << endl;
+	}
 }
 
 void TestSimpleMultiplication()
@@ -103,7 +214,7 @@ void TestSimpleMultiplication()
 
 	matrix.Print();
 
-	cout << "++++++" << endl;
+	cout << "******" << endl;
 
 	vector<double> multipliedVector;
 	multipliedVector.push_back(3);
