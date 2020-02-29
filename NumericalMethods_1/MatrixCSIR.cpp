@@ -24,7 +24,7 @@ double MatrixCSIR::GetElement(int row, int column)
 		if (lineElementsNumber == 0) return 0;
 
 		//ищем столбец Column в массиве jptr
-		for (int ind = iptr[row] - 1, int k = 0; k < lineElementsNumber; ind++, k++)
+		for (int ind = iptr[row] - 1, k = 0; k < lineElementsNumber; ind++, k++)
 			if (column == (jptr[ind] - 1)) return altr[iptr[row] - 1 + k];
 	}
 
@@ -34,7 +34,7 @@ double MatrixCSIR::GetElement(int row, int column)
 		int rowElementsNumber = iptr[column + 1] - iptr[column];
 		if (rowElementsNumber == 0) return 0;
 		//ищем строку Row в массиве jptr
-		for (int ind = iptr[column] - 1, int k = 0; k < rowElementsNumber; ind++, k++)
+		for (int ind = iptr[column] - 1, k = 0; k < rowElementsNumber; ind++, k++)
 			if (row == (jptr[ind] - 1)) return autr[iptr[column] - 1 + k];
 	}
 }

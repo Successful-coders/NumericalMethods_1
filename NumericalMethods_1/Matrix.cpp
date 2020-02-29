@@ -1,8 +1,10 @@
 #include "Matrix.h"
+#include <iostream>
 
 Matrix::Matrix(vector<vector<double>> elements)
 {
 	Matrix::elements = elements;
+	size = elements.size();
 }
 
 Matrix::Matrix(MatrixCSIR matrixCSIR)
@@ -39,4 +41,16 @@ vector<double> Matrix::MultiplyByVector(vector<double> multipliedVector)
 	}
 
 	return resultVector;
+}
+
+void Matrix::Print()
+{
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			cout << elements[i][j];
+		}
+		cout << endl;
+	}
 }

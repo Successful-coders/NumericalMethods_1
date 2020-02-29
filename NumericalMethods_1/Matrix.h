@@ -11,6 +11,7 @@ public:
 	Matrix(MatrixCSIR matrixCSIR);
 	double GetElement(int line, int row);
 	vector<double> MultiplyByVector(vector<double> multipliedVector);
+	void Print();
 
 private:
 	int size;

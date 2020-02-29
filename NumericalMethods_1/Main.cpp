@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "MatrixCSIR.h"
+#include "Matrix.h"
 
 //using namespace std;//лучше потом не использоать
 std::vector <double> di;
@@ -77,6 +78,49 @@ int main()
 {
 	char* fileName;
 	ReadBin("");
+}
 
-	//MatrixCSIR matrix(sizeMatrix, di, autr, altr, jptr, iptr);
+void TestSimpleMultiplication()
+{
+	vector<vector<double>> testElements;
+	testElements.push_back(vector<double>());
+	testElements.push_back(vector<double>());
+	testElements.push_back(vector<double>());
+
+	testElements[0].push_back(2);
+	testElements[0].push_back(3);
+	testElements[0].push_back(2);
+
+	testElements[1].push_back(0);
+	testElements[1].push_back(1);
+	testElements[1].push_back(5);
+
+	testElements[2].push_back(6);
+	testElements[2].push_back(6);
+	testElements[2].push_back(6);
+
+	Matrix matrix(testElements);
+
+	matrix.Print();
+
+	cout << "++++++" << endl;
+
+	vector<double> multipliedVector;
+	multipliedVector.push_back(3);
+	multipliedVector.push_back(0);
+	multipliedVector.push_back(1);
+
+	for (int i = 0; i < multipliedVector.size(); i++)
+	{
+		cout << multipliedVector[i] << endl;
+	}
+
+	cout << "======" << endl;
+
+	vector<double> resultVector = matrix.MultiplyByVector(multipliedVector);
+
+	for (int i = 0; i < resultVector.size(); i++)
+	{
+		cout << resultVector[i] << endl;
+	}
 }
