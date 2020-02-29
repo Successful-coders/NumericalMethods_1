@@ -1,13 +1,16 @@
 #pragma once
+<<<<<<< HEAD
 #include <vector> 
 
 using namespace std;
+=======
+#include <vector>
+>>>>>>> dbd939ce70e765a9efeea2aab60c3cb81b621067
 
 class MatrixCSIR
 {
 public:
-	MatrixCSIR(int sizeMatrix, double* di, double* autr, double* altr, int* jptr, int* iptr);
-
+	//MatrixCSIR(int sizeMatrix, std::vector <double> di, std::vector <double> autr, std::vector <double> altr, std::vector <int> jptr, std::vector <int> iptr); рср ньхайю
 	double GetElement(int row, int column);
 	void TransposeFullMatrix();
 	void MultiplyFullMatrix();
@@ -15,11 +18,15 @@ public:
 	void FiftenExs();
 
 private:
+<<<<<<< HEAD
 	int size = 0;
-
-	double* di;
-	double* autr;
-	double* altr;
-	int* jptr;
-	int* iptr;
+=======
+	int sizeMatrix = 0;
+	std::vector <double> di;
+	std::vector <double> autr;
+	std::vector <double> altr;
+	std::vector <int> jptr;
+	std::vector <int> iptr;
 };
+>>>>>>> dbd939ce70e765a9efeea2aab60c3cb81b621067
+
