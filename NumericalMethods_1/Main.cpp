@@ -270,7 +270,8 @@ int main()
 
 	while (true)
 	{
-		vector <double> y = matrixCSIR.MultiplyByVector(x);
+		vector <double> y;
+		y = matrixCSIR.MultiplyByVector(x);
 	}
 
 }
