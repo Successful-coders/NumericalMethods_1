@@ -13,11 +13,15 @@ Matrix::Matrix(MatrixCSIR matrixCSIR)
 
 	vector<vector<double>> elements(size, std::vector<double>(size, 0));
 
+	
 	for (int i = 0; i < size; i++)
 	{
 		for (int j = 0; j < size; j++)
 		{
-			elements[i][j] = matrixCSIR.GetElement(i, j);
+			if (matrixCSIR.GetElement(i, j) != 0)
+			{
+				elements[i][j] = matrixCSIR.GetElement(i, j);
+			}
 		}
 	}
 

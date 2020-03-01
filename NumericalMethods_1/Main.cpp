@@ -2,6 +2,8 @@
 #include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <random>
+#include <chrono>
 #include "MatrixCSIR.h"
 #include "Matrix.h"
 
@@ -73,165 +75,213 @@ void ReadBin(const std::string& PATH)
 	Reader.close();
 }
 
+//void TestAllMulitplications()
+//{
+//	sizeMatrix = 7;
+//
+//	di.clear();
+//	di.push_back(9);
+//	di.push_back(11);
+//	di.push_back(10);
+//	di.push_back(9);
+//	di.push_back(12);
+//	di.push_back(8);
+//	di.push_back(8);
+//
+//	autr.clear();
+//	autr.push_back(2);
+//	autr.push_back(3);
+//	autr.push_back(1);
+//	autr.push_back(2);
+//	autr.push_back(1);
+//	autr.push_back(1);
+//	autr.push_back(1);
+//	autr.push_back(2);
+//	autr.push_back(1);
+//
+//	altr.clear();
+//	altr.push_back(1);
+//	altr.push_back(2);
+//	altr.push_back(1);
+//	altr.push_back(2);
+//	altr.push_back(1);
+//	altr.push_back(1);
+//	altr.push_back(2);
+//	altr.push_back(2);
+//	altr.push_back(3);
+//
+//	jptr.clear();
+//	jptr.push_back(2);
+//	jptr.push_back(1);
+//	jptr.push_back(2);
+//	jptr.push_back(3);
+//	jptr.push_back(1);
+//	jptr.push_back(4);
+//	jptr.push_back(1);
+//	jptr.push_back(2);
+//	jptr.push_back(5);
+//
+//	iptr.clear();
+//	iptr.push_back(1);
+//	iptr.push_back(1);
+//	iptr.push_back(1);
+//	iptr.push_back(2);
+//	iptr.push_back(5);
+//	iptr.push_back(7);
+//	iptr.push_back(7);
+//	iptr.push_back(10);
+//
+//	MatrixCSIR matrixCSIR(sizeMatrix, di, autr, altr, jptr, iptr);
+//
+//	matrixCSIR.Print();
+//
+//	cout << "******" << endl;
+//
+//	vector<double> multipliedVector;
+//	multipliedVector.push_back(3);
+//	multipliedVector.push_back(0);
+//	multipliedVector.push_back(1);
+//	multipliedVector.push_back(1);
+//	multipliedVector.push_back(1);
+//	multipliedVector.push_back(1);
+//	multipliedVector.push_back(1);
+//
+//	for (int i = 0; i < multipliedVector.size(); i++)
+//	{
+//		cout << multipliedVector[i] << endl;
+//	}
+//
+//	cout << "======" << endl;
+//
+//	vector<double> resultVector = matrixCSIR.MultiplyByVector(multipliedVector);
+//
+//	for (int i = 0; i < resultVector.size(); i++)
+//	{
+//		cout << resultVector[i] << endl;
+//	}
+//
+//	cout << endl;
+//
+//	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Matrix matrix(matrixCSIR);
+//
+//	cout << endl;
+//	matrix.Print();
+//
+//	cout << "******" << endl;
+//
+//	for (int i = 0; i < multipliedVector.size(); i++)
+//	{
+//		cout << multipliedVector[i] << endl;
+//	}
+//
+//	cout << "======" << endl;
+//
+//	resultVector = matrix.MultiplyByVector(multipliedVector);
+//
+//	for (int i = 0; i < resultVector.size(); i++)
+//	{
+//		cout << resultVector[i] << endl;
+//	}
+//}
+//
+//void TestSimpleMultiplication()
+//{
+//	vector<vector<double>> testElements;
+//	testElements.push_back(vector<double>());
+//	testElements.push_back(vector<double>());
+//	testElements.push_back(vector<double>());
+//
+//	testElements[0].push_back(2);
+//	testElements[0].push_back(3);
+//	testElements[0].push_back(2);
+//
+//	testElements[1].push_back(0);
+//	testElements[1].push_back(1);
+//	testElements[1].push_back(5);
+//
+//	testElements[2].push_back(6);
+//	testElements[2].push_back(6);
+//	testElements[2].push_back(6);
+//
+//	Matrix matrix(testElements);
+//
+//	matrix.Print();
+//
+//	cout << "******" << endl;
+//
+//	vector<double> multipliedVector;
+//	multipliedVector.push_back(3);
+//	multipliedVector.push_back(0);
+//	multipliedVector.push_back(1);
+//
+//	for (int i = 0; i < multipliedVector.size(); i++)
+//	{
+//		cout << multipliedVector[i] << endl;
+//	}
+//
+//	cout << "======" << endl;
+//
+//	vector<double> resultVector = matrix.MultiplyByVector(multipliedVector);
+//
+//	for (int i = 0; i < resultVector.size(); i++)
+//	{
+//		cout << resultVector[i] << endl;
+//	}
+//}
+
 int main()
 {
-	char* fileName;
-
-	ReadBin("");
-}
-
-void TestAllMulitplications()
-{
-	sizeMatrix = 7;
-
-	di.clear();
-	di.push_back(9);
-	di.push_back(11);
-	di.push_back(10);
-	di.push_back(9);
-	di.push_back(12);
-	di.push_back(8);
-	di.push_back(8);
-
-	autr.clear();
-	autr.push_back(2);
-	autr.push_back(3);
-	autr.push_back(1);
-	autr.push_back(2);
-	autr.push_back(1);
-	autr.push_back(1);
-	autr.push_back(1);
-	autr.push_back(2);
-	autr.push_back(1);
-
-	altr.clear();
-	altr.push_back(1);
-	altr.push_back(2);
-	altr.push_back(1);
-	altr.push_back(2);
-	altr.push_back(1);
-	altr.push_back(1);
-	altr.push_back(2);
-	altr.push_back(2);
-	altr.push_back(3);
-
-	jptr.clear();
-	jptr.push_back(2);
-	jptr.push_back(1);
-	jptr.push_back(2);
-	jptr.push_back(3);
-	jptr.push_back(1);
-	jptr.push_back(4);
-	jptr.push_back(1);
-	jptr.push_back(2);
-	jptr.push_back(5);
-
-	iptr.clear();
-	iptr.push_back(1);
-	iptr.push_back(1);
-	iptr.push_back(1);
-	iptr.push_back(2);
-	iptr.push_back(5);
-	iptr.push_back(7);
-	iptr.push_back(7);
-	iptr.push_back(10);
-
+	ReadBin(""); /// 1 exs
 	MatrixCSIR matrixCSIR(sizeMatrix, di, autr, altr, jptr, iptr);
 
-	matrixCSIR.Print();
-
-	cout << "******" << endl;
-
-	vector<double> multipliedVector;
-	multipliedVector.push_back(3);
-	multipliedVector.push_back(0);
-	multipliedVector.push_back(1);
-	multipliedVector.push_back(1);
-	multipliedVector.push_back(1);
-	multipliedVector.push_back(1);
-	multipliedVector.push_back(1);
-
-	for (int i = 0; i < multipliedVector.size(); i++)
+	vector <double> multipleVector;
+	for (int i = 0; i < sizeMatrix; i++)
 	{
-		cout << multipliedVector[i] << endl;
+		double element = rand()%100 +(double)rand() / RAND_MAX;
+		multipleVector.push_back(element);
 	}
 
-	cout << "======" << endl;
+	auto start = std::chrono::high_resolution_clock::now();
 
-	vector<double> resultVector = matrixCSIR.MultiplyByVector(multipliedVector);
+	matrixCSIR.MultiplyByVector(multipleVector);// 3 exs (a)
 
-	for (int i = 0; i < resultVector.size(); i++)
+	auto end = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> diff = end - start;
+	cout << "Time multiplication CSlR on vector " << diff.count() << endl;
+
+	//Matrix matrix(matrixCSIR);// 2 exs ПРОБЛЕМА С ВЫДЕЛЕНИЕМ ПАМЯТИ
+
+	auto start1 = std::chrono::high_resolution_clock::now();
+
+	//matrix.MultiplyByVector(multipleVector);// 3 exs(b)
+
+	auto end1 = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> diff1 = end1 - start1;
+	cout << "Time multiplication Full matrix on vector " << diff1.count() << endl;
+
+	vector <int> x;
+	x.push_back(1);
+	for (int i = 0; i < sizeMatrix-1; i++)
 	{
-		cout << resultVector[i] << endl;
+		x.push_back(0);
 	}
 
-	cout << endl;
-
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	Matrix matrix(matrixCSIR);
-
-	cout << endl;
-	matrix.Print();
-
-	cout << "******" << endl;
-
-	for (int i = 0; i < multipliedVector.size(); i++)
+	while (true)
 	{
-		cout << multipliedVector[i] << endl;
+		vector <double> y = matrixCSIR.MultiplyByVector(x);
 	}
 
-	cout << "======" << endl;
-
-	resultVector = matrix.MultiplyByVector(multipliedVector);
-
-	for (int i = 0; i < resultVector.size(); i++)
-	{
-		cout << resultVector[i] << endl;
-	}
 }
 
-void TestSimpleMultiplication()
-{
-	vector<vector<double>> testElements;
-	testElements.push_back(vector<double>());
-	testElements.push_back(vector<double>());
-	testElements.push_back(vector<double>());
-
-	testElements[0].push_back(2);
-	testElements[0].push_back(3);
-	testElements[0].push_back(2);
-
-	testElements[1].push_back(0);
-	testElements[1].push_back(1);
-	testElements[1].push_back(5);
-
-	testElements[2].push_back(6);
-	testElements[2].push_back(6);
-	testElements[2].push_back(6);
-
-	Matrix matrix(testElements);
-
-	matrix.Print();
-
-	cout << "******" << endl;
-
-	vector<double> multipliedVector;
-	multipliedVector.push_back(3);
-	multipliedVector.push_back(0);
-	multipliedVector.push_back(1);
-
-	for (int i = 0; i < multipliedVector.size(); i++)
-	{
-		cout << multipliedVector[i] << endl;
-	}
-
-	cout << "======" << endl;
-
-	vector<double> resultVector = matrix.MultiplyByVector(multipliedVector);
-
-	for (int i = 0; i < resultVector.size(); i++)
-	{
-		cout << resultVector[i] << endl;
-	}
-}
+//vector<vector<double>> elements(5, std::vector<double>(5, 0));
+//for (int i = 0; i < 5; i++)
+//{
+//		elements[i][i] = 1;
+//	for (int j = 0; j < 5; j++)
+//	{
+//		cout << elements[i][j];
+//	}
+//	cout << endl;
+//}

@@ -1,4 +1,5 @@
 ﻿#include "MatrixCSIR.h"
+#include "Matrix.h"
 #include <iostream>
 
 MatrixCSIR::MatrixCSIR(int sizeMatrix, vector <double> di, vector <double> autr, vector <double> altr, vector <int> jptr, vector <int> iptr)
@@ -51,12 +52,14 @@ double MatrixCSIR::GetElement(int row, int column)
 	return 0;
 }
 
-void MatrixCSIR::Transpose()
-{
-	// перевод в полный формат по заданию
-}
+//Matrix MatrixCSIR::Transpose(MatrixCSIR matrixCSIR)
+//{
+//	Matrix fullMartix(matrixCSIR);
+//	return fullMartix;
+//}
 
-vector<double> MatrixCSIR::MultiplyByVector(vector<double> multipliedVector)
+template <typename T>
+vector<double> MatrixCSIR::MultiplyByVector(vector<T> multipliedVector)
 {
 	if (multipliedVector.size() != size)
 	{
