@@ -245,7 +245,7 @@ int main()
 
 	auto start = std::chrono::high_resolution_clock::now();
 
-	matrixCSIR.MultiplyByVector(multipleVector);// 3 exs (a)
+	matrixCSIR.MultiplyByVector<double>(multipleVector);// 3 exs (a)
 
 	auto end = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> diff = end - start;
