@@ -231,6 +231,26 @@ void ReadBin(const std::string& PATH)
 //	}
 //}
 
+double Euklidnorm(vector<double> y)
+{
+	double EuklResult = 0;
+	for (int i = 0; i < sizeMatrix; i++)
+	{
+		EuklResult += y[i] * y[i];
+	}
+	double result = sqrt(EuklResult);
+	return result;
+}
+
+//double MultipleVectorOnVector(vector<double> y)
+//{
+//	double result= 0;
+//	for (int i = 0; i < y.size; i++)
+//	{
+//		result += y[i] * y[i];
+//	}
+//	return result;
+//}
 int main()
 {
 	ReadBin(""); /// 1 exs
@@ -261,6 +281,8 @@ int main()
 	std::chrono::duration<double> diff1 = end1 - start1;
 	cout << "Time multiplication Full matrix on vector " << diff1.count() << endl;
 
+	//////////////////////////////////////////////////////////////////////////////////
+	// 5 exs
 	vector <int> x;
 	x.push_back(1);
 	for (int i = 0; i < sizeMatrix-1; i++)
@@ -268,21 +290,21 @@ int main()
 		x.push_back(0);
 	}
 
+
+	///5 (a) exs
+	vector <double> y;
 	while (true)
 	{
-		vector <double> y;
 		y = matrixCSIR.MultiplyByVector(x);
+		cout << Euklidnorm(y)<<" " << x[0] <<endl;
+		x[0] = 10 * x[0];
 	}
-
+	///5(b) exs
+	//vector <double> y;
+	//while (true)
+	//{
+	//	y = matrixCSIR.MultiplyByVector(x);
+	//	cout << Euklidnorm(y) << " " << x[0] << endl;
+	//	x[0] = x[0] / 10;
+	//}
 }
-
-//vector<vector<double>> elements(5, std::vector<double>(5, 0));
-//for (int i = 0; i < 5; i++)
-//{
-//		elements[i][i] = 1;
-//	for (int j = 0; j < 5; j++)
-//	{
-//		cout << elements[i][j];
-//	}
-//	cout << endl;
-//}
