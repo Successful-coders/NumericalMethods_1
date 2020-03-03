@@ -11,20 +11,21 @@ Matrix::Matrix(MatrixCSIR matrixCSIR)
 {
 	size = matrixCSIR.Size();
 
-	vector<vector<double>> elements(size, std::vector<double>(size, 0));
+	std::vector < std::vector < double>>elements;
 
-	
-	for (int i = 0; i < size; i++)
-	{
-		for (int j = 0; j < size; j++)
-		{
-			if (matrixCSIR.GetElement(i, j) != 0)
-			{
-				elements[i][j] = matrixCSIR.GetElement(i, j);
-			}
+	for (int i = 0; i < size; i++) {
+
+		elements.push_back(std::vector<double>());
+
+		for (int j = 0; j < size; j++) {
+
+			double s = matrixCSIR.GetElement(i, j);
+
+			elements.back().push_back(s);
+
 		}
-	}
 
+	}
 	Matrix::elements = elements;
 }
 

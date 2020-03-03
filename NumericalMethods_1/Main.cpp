@@ -271,11 +271,11 @@ int main()
 	std::chrono::duration<double> diff = end - start;
 	cout << "Time multiplication CSlR on vector " << diff.count() << endl;
 
-	//Matrix matrix(matrixCSIR);// 2 exs ПРОБЛЕМА С ВЫДЕЛЕНИЕМ ПАМЯТИ
+	Matrix matrix(matrixCSIR);// 2 exs ПРОБЛЕМА С ВЫДЕЛЕНИЕМ ПАМЯТИ
 
 	auto start1 = std::chrono::high_resolution_clock::now();
 
-	//matrix.MultiplyByVector(multipleVector);// 3 exs(b)
+	matrix.MultiplyByVector(multipleVector);// 3 exs(b)
 
 	auto end1 = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> diff1 = end1 - start1;
@@ -292,19 +292,19 @@ int main()
 
 
 	///5 (a) exs
-	vector <double> y;
-	while (true)
-	{
-		y = matrixCSIR.MultiplyByVector(x);
-		cout << Euklidnorm(y)<<" " << x[0] <<endl;
-		x[0] = 10 * x[0];
-	}
-	///5(b) exs
 	//vector <double> y;
 	//while (true)
 	//{
 	//	y = matrixCSIR.MultiplyByVector(x);
-	//	cout << Euklidnorm(y) << " " << x[0] << endl;
-	//	x[0] = x[0] / 10;
+	//	cout << Euklidnorm(y)<<" " << x[0] <<endl;
+	//	x[0] = 10 * x[0];
 	//}
+	//5(b) exs
+	vector <double> y;
+	while (true)
+	{
+		y = matrixCSIR.MultiplyByVector(x);
+		cout << Euklidnorm(y) << " " << x[0] << endl;
+		x[0] = x[0] / 10;
+	}
 }
